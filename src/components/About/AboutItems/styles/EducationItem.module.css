@@ -1,0 +1,47 @@
+.educationContainer{
+    width: 100%;
+    display: grid;
+    column-gap: var(--gutterSize);
+    row-gap: var(--gutterSize);
+}
+
+.educationContainer hr {
+    margin: 12px 0px;
+    border: 0px solid var(--font-color);
+    border-top: 2px solid var(--font-color);
+}
+
+.eduData > div:nth-child(2) {
+    float: right;    
+}
+
+.eduData > div:nth-child(1) {
+    float: left;    
+}
+
+.eduData > div:nth-child(2) > div:nth-child(1) {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+    .title hr{
+        border: 0px solid var(--font-color);
+        border-top: 4px solid var(--font-color);
+    }
+
+    .educationContainer{
+        grid-template-columns: 1fr ;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .title{display: none;}
+    .educationContainer{
+        grid-template-columns: 1fr 1fr ;
+    }
+
+ }

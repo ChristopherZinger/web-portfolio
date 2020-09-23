@@ -1,0 +1,188 @@
+.about{
+    grid-area: mainContainer;
+    /* GRID */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--gutterSize);
+    row-gap:  var(--gutterSize);
+
+}
+
+.aboutMenu{
+    grid-area: info;
+    min-height: 286px; 
+  }
+
+.headlineContainer{
+    /* GRID */
+    grid-area: headlineContainer;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: var(--gutterSize);
+    row-gap:  var(--gutterSize);
+    align-items: start;
+}
+
+.infoContainer{
+    grid-area: infoContainer;
+
+    /* GRID */
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: var(--gutterSize);
+    row-gap:  var(--gutterSize);
+}
+
+
+.headline{
+    grid-area: headline;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.right{
+    text-align: right;
+    display: block;
+}
+
+.left{
+    text-align: left;
+    display: block;
+}
+.full{
+    display: block;
+    position: relative;
+    width:100%;
+}
+
+.imgContainer{
+    position: relative;
+    display: block;
+    overflow:hidden;
+    height: 300px;
+    width: 300px;
+    border-radius: 0 50% 50% 50%;   
+}
+
+.img{
+    position: relative;
+    display: block;
+    height: 350px;
+    width: 350px;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    
+    object-fit: cover;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) { 
+    .about{
+        grid-template-areas: 
+        "headlineContainer "    
+        "infoContainer"
+        "contactFooter";
+
+        grid-template-columns: calc(100vw - ( 2* var(--gutterSize) ) );
+        grid-template-rows: 100px max-content max-content;
+    }
+
+    .allItems > div {
+        margin-top: 55px;
+    }
+
+    .allItems > div > div:nth-child(1){
+         font-size: 2em;
+    }
+
+    .headline{
+        display: none;
+    }
+
+    .sHeadline{
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .sHeadline h1{
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .infoContainer{
+        grid-template-columns: calc(100vw - ( 2* var(--gutterSize) ) );
+        grid-template-areas: 
+        "info";
+    } 
+    .singleItems{ display: none;}
+
+    .headlineContainer{
+        grid-template-areas: "headline ";
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  
+    .about{
+        grid-template-areas: 
+        "headlineContainer headlineContainer . "
+        "infoContainer infoContainer infoContainer"
+        ". . contactFooter";
+
+        grid-template-rows: 1fr 1fr max-content;
+        
+    }
+    .headlineContainer{
+        grid-template-areas: 
+        "headline headline headline headline headline headline ";
+    }
+
+    .infoContainer{
+        grid-template-areas: 
+        "info info info info info info info info info";
+    }  
+    .sHeadline{
+        display: none;
+    }
+    .allItems{
+        display: none;
+    }
+    .headline{
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .infoContainer{
+        grid-template-areas: 
+        ". . info info info info info info info";
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .infoContainer{
+        grid-template-areas: 
+        ". . info info info info info info .";
+    }
+ }
+
+
+ @media (min-width: 1350px) {
+    .infoContainer{
+        grid-template-areas: 
+        ". . . info info info info info .";
+    }
+ }
+
+

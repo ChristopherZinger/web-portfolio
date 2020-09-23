@@ -1,0 +1,99 @@
+.description{
+    grid-area: description;
+    font-size: 11pt;
+    position: relative;
+}
+
+.visitLink {
+    position: absolute;
+    bottom: 0px;
+} 
+
+.visitLink div {
+    position: relative;
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    border: 2px solid var(--font-color);
+}
+
+.visitLink a {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    text-align: center;
+} 
+
+.visitLink div:nth-child(1) a img  {
+    width: 60%;
+} 
+
+.visitLink div:nth-child(2) a img  {
+    width: 48%;
+} 
+
+.description p{
+    position: relative;
+    text-justify: none;
+    line-height: 16pt;
+}
+
+@media (max-width: 767px) { 
+    .visitLink{
+        position: relative;
+    }
+    .visitLink div {
+        top: 0px;
+        float: left;
+        margin-right: 20px;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .description p{
+        column-count: 2;
+        column-gap: var(--gutterSize);
+        
+    }
+    .visitLink{
+        position: relative;
+    }
+    .visitLink div {
+        top: 0px;
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .description p{
+        column-count: 1;
+        margin-bottom: 0px;
+    }
+    .visitLink{
+        position: absolute;
+    }
+    .visitLink div {
+        float: none;
+        margin-right: 0px;
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .description p{
+        column-count: 1;
+    }
+
+    .visitLink {
+        bottom: 0px;
+    }
+ }
+
+
+ @media (min-width: 1540px) {
+
+ }

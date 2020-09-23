@@ -1,0 +1,44 @@
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) { 
+    .hiddenNavbar{
+        display: block;
+        top: 0px;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+        box-shadow: -10px -10px 10px rgb(220, 220,220);
+        box-sizing: content-box;
+        z-index: 100;
+        left: calc( 100vw + 10px );
+        transition: .4s;
+    }
+
+    .hiddenNavbar > ul {
+        display: block; position: relative;;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hiddenNavbar > ul > li {
+        font-size: 2rem;
+        margin: .7em 0em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .isVisible{
+        left:0vw ;
+    }        
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .hiddenNavbar{
+        display: none;
+    }
+}
+

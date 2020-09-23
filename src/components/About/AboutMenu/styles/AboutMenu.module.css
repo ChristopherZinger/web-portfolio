@@ -1,0 +1,68 @@
+.navContainer{
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.infoMenu{
+  width: 100%;
+  padding: 0px; margin: 0px; border: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: var(--gutterSize);
+  position: relative;
+
+  grid-template-areas: 
+  "about skills experience education hobby"
+  "hr hr hr hr hr";
+
+}
+
+.infoMenu a{
+  height: 100%;
+  display: inline-block;
+  font-weight: 600;
+  padding-bottom: 8px;
+  color: var(--font-color);
+}
+
+
+
+.infoMenu a:nth-child(1):hover ~ .hr{
+  background: var(--font-color);
+  margin-left: 0%;
+}
+.infoMenu a:nth-child(2):hover ~ .hr{
+  background: var(--font-color);
+  margin-left: calc((((100% - (var(--gutterSize) * 4))/5 ) + (var(--gutterSize))) *1);
+}
+ .infoMenu a:nth-child(3):hover ~ .hr {
+  margin-left: calc((((100% - (var(--gutterSize) * 4))/5 ) + (var(--gutterSize))) *2);
+  background: var(--font-color);
+}
+ .infoMenu a:nth-child(4):hover ~ .hr {
+  margin-left: calc((((100% - (var(--gutterSize) * 4))/5 ) + (var(--gutterSize))) *3);
+  background: var(--font-color);
+}
+.infoMenu a:nth-child(5):hover ~ .hr {
+  margin-left: calc((((100% - (var(--gutterSize) * 4))/5 ) + (var(--gutterSize))) *4 );
+  background: var(--font-color);
+}
+
+.linkAbout{ grid-area: about;}
+.linkEducation{ grid-area: education;}
+.linkExperience{ grid-area: experience;}
+.linkSkills{ grid-area: skills;}
+.linkHobby{ grid-area: hobby;}
+
+.hr{
+  grid-area: hr;
+  /* transform: translateY(-.25rem); */
+  height: .25rem;
+  width: calc((100% - (30px * 4) )/5);  /*calc(20% - (var(--gutterSize)/2) ); */
+  margin: 0;
+  margin-left: var(--navSelectorLeftOffset);
+  background: var(--font-color);
+  border: none;
+  transition: .3s ease-in-out;
+  position: absolute;
+} 

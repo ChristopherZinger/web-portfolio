@@ -1,0 +1,173 @@
+.mainContainer{
+    width: 100%;
+    grid-area: mainContainer;
+    position: relative;
+    /* max-height: calc(100vh - ( 3 * var(--gutterSize)) - var(--navTopSize) ) ; */
+
+    /* GRID */
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: var(--gutterSize);
+    row-gap:  var(--gutterSize);
+
+    margin-bottom: var(--gutterSize);
+}
+
+.prevnext{
+    grid-area: prevnext;
+    height: 50px;
+    position: absolute;
+    bottom:0px;
+    right: 0;
+    width: 100%;
+}
+
+.prevnext img{
+    height: 50px;
+    cursor: pointer;
+}
+
+.projInfo{
+    grid-area: projInfo;
+    font-size: .9rem;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    column-gap: var(--gutterSize);
+}
+
+.title{
+    grid-area: title;
+    font-size: 4.2rem;
+}
+
+
+.techContainer{
+    grid-area: techContainer;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.tech{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) { 
+    .mainContainer{
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content max-content max-content max-content 50px;
+        grid-template-areas: 
+        "title "
+        "projInfo"
+        "description "
+        "projPreview"
+        "techContainer"
+        "prevnext"
+        ;
+    }
+    .techContainer{display: block;}
+
+    .prevnext{
+        width: 100%;
+        height: 50px;
+        position: relative;
+        float: none;
+        justify-content: space-between;
+    }
+    
+    .prevnext svg{
+        height: 50px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .mainContainer{
+        grid-template-rows: 1fr max-content 2fr 385px minmax(max-content, 1fr) 50px;
+        grid-template-columns: 1fr 7fr 1fr;
+        grid-template-areas: 
+        "title title title "
+        ". projInfo ."
+        ". description  . "
+        ". projPreview ."
+        ". techContainer ."
+        ". prevnext prevnext"
+        ;
+    }
+
+    .projInfo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 24px;
+    }
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .mainContainer{
+        grid-template-rows: max-content max-content 385px 1fr max-content;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-areas: 
+        "title title title title title title title title title "
+        "projInfo projInfo projInfo projInfo projInfo projInfo projInfo projInfo  ."
+        "description description description  projPreview projPreview projPreview projPreview projPreview   ."
+        ". . techContainer techContainer techContainer techContainer techContainer techContainer   ."
+        ". . . . . . prevnext prevnext prevnext"
+        ;   
+    }
+    .techContainer{display: block;}
+    .projInfo{
+        grid-template-columns: 2fr 6fr;
+    }
+    .prevnext div {
+        float: right;
+    }
+    .prevnext{
+        position: relative;
+    }
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .mainContainer{
+        grid-template-rows: max-content max-content 385px 1fr 50px;
+        grid-template-areas: 
+        "title title title title title title title title title "
+        "projInfo projInfo projInfo projInfo projInfo projInfo projInfo projInfo projInfo"
+        "description description projPreview projPreview projPreview projPreview projPreview projList projList"
+        ". . techContainer techContainer techContainer . . . ."
+        ". . . . . . . prevnex prevnext"
+        ;
+
+    }
+    .projInfo{
+        grid-template-columns: 2fr 6fr;
+    }
+ }
+
+
+ @media (min-width: 1350px) {
+    .mainContainer{
+        grid-template-rows: max-content max-content 385px 1fr 50px;
+        grid-template-areas: 
+        "title title title title title title title title title "
+        ". projInfo projInfo projInfo projInfo projInfo projInfo . ."
+        ". description description projPreview projPreview projPreview projPreview projList projList"
+        ". . . techContainer techContainer techContainer . . ."
+        ". . . . . . . prevnex prevnext"
+        ;
+    }
+
+    .projInfo{
+        grid-template-columns: repeat(3, 1fr );
+
+    }
+
+ }

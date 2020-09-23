@@ -1,0 +1,43 @@
+.colorToggler{
+    grid-area: colorToggler;
+    cursor: pointer;  
+}
+
+
+
+.colorToggler > div {
+    float: right;
+}
+
+.colorToggler > div >  p{
+    color: var(--heart-color);
+    display: inline-block;
+}
+
+.colorToggler > div > svg {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin: 0px 3px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+    .colorToggler{display: none;}
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { }
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+ }
+
+
+ @media (min-width: 1540px) {
+ }

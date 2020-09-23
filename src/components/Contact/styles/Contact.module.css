@@ -1,0 +1,89 @@
+.mainContainer{
+
+    grid-area: mainContainer;
+
+    display: grid;
+    grid-template-columns: 3fr 4fr 2fr;
+    column-gap: var(--gutterSize);
+    row-gap: var(--gutterSize);
+    grid-template-rows: 100px 4fr;
+
+    grid-template-areas: 
+    "title title title"
+    ". posts .";
+}
+
+
+.contactContainer{
+    grid-area: contactContainer;
+    color: var(--font-color-gray);
+}
+
+.contactContainer div{
+    margin: 0px 0px 40px 0px;
+}
+
+
+.contactContainer h4{
+    font-size: 24pt;
+}
+
+.contactContainer hr{
+    border-top: 3px solid var(--font-color);
+}
+
+.contactContainer p{
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.title{
+    grid-area: title;
+    width: 100%;
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) { 
+    .mainContainer{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "title"
+        "contactContainer";
+    }
+}
+
+.contactContainer h4{
+    font-size: 1.2rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .mainContainer{
+        grid-template-columns: 1fr 5fr 1fr;
+
+        grid-template-areas: 
+        "title title title"
+        ". contactContainer .";
+    }    
+
+}
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .mainContainer{
+        grid-template-columns: 3fr 3fr 3fr;
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+ }
+
+
+ @media (min-width: 1350px) {
+ 
+ }

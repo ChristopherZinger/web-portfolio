@@ -1,0 +1,49 @@
+.contactFooter{
+    grid-area: contactFooter;
+    position: relative;
+}
+
+.contactFooter > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.linkContainer{
+    position: relative;
+    display: block;
+
+    width: 30px;
+    height: 30px;
+}
+
+.img{
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) { 
+    .contactFooter > div{
+        margin-top: 50px;
+        transform: translate( calc(var(--gutterSize) * (-1))  );
+        width: 100vw;
+        background-color: #f2f2f2;
+        padding: 50px 0px;
+     }
+
+    .contactFooter > div > div:nth-child(1){
+        display: none;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .contactFooter{
+        grid-template-columns: 4fr 1fr 1fr;
+    }
+}    
+
