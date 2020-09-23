@@ -149,33 +149,6 @@ class Projects extends Component {
     render() {
         const project = this.state.projects[this.state.currentNr]
 
-        const arrows = {
-            right: (
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="44" height="44" transform="matrix(-1 0 0 1 44 0)" fill="none" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 17 34)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 22 29)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 27 24)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 32 19)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 27 14)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 22 9)" fill="var(--font-color)" />
-                    <rect width="5" height="5" transform="matrix(-1 0 0 1 17 4)" fill="var(--font-color)" />
-                </svg>
-            ),
-
-            left: (
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="44" height="44" transform="matrix(-1 0 0 1 44 0)" fill="none" />
-                    <rect x="27" y="34" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="22" y="29" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="17" y="24" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="12" y="19" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="17" y="14" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="22" y="9" width="5" height="5" fill="var(--font-color)" />
-                    <rect x="27" y="4" width="5" height="5" fill="var(--font-color)" />
-                </svg>
-            )
-        }
         return (
             <div className={styles.mainContainer} >
                 <div className={styles.title}>
