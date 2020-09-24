@@ -64,8 +64,8 @@ class Projects extends Component {
                 "gifSrc": "projects/project_PortfolioPage.gif",
                 "technologies": ["Javascript", "HTML", "CSS"],
                 "display": "portrait",
-                "urlGit": "",
-                "url": ""
+                "urlGit": "https://github.com/ChristopherZinger/PortfolioPage",
+                "url": "https://christopher-zinger.netlify.app/"
             },
             {
                 "id": 6,
