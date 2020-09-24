@@ -174,13 +174,10 @@ class Projects extends Component {
 
                 <div className={styles.prevnext}>
                     <div>
-                        {/* <img onClick={this.handlePrevious.bind(this)} src="/pictograms/arrow_left_7.svg" alt="arrow left" /> */}
-                        {SVGlib.arrows.left}
-                        {SVGlib.arrows.right}
-                        {/* <img onClick={this.handleNext.bind(this)} src="/pictograms/arrow_right_7.svg" alt="arrow right" /> */}
+                        <span onClick={this.handlePrevious.bind(this)} >{SVGlib.arrows.left}</span>
+                        <span onClick={this.handleNext.bind(this)} >{SVGlib.arrows.right}</span>
                     </div>
                 </div>
-
             </div>
         )
     }
