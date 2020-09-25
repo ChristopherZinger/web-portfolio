@@ -9,12 +9,12 @@ function ProjectPreview(props) {
                 (props.project.display === "portrait" ? styles.ipadPortrait : styles.ipadLandscape)}>
                 {
                     props.project.gifSrc ?
-                        <LazyLoad >
+                        <LazyLoad height={385} width="100%" className={styles.lazyLoad}>
                             <img className={styles.gif} src={props.project.gifSrc} alt="gif" />
                         </LazyLoad>
 
                         :
-                        <LazyLoad >
+                        <LazyLoad height="100%">
                             <img className={styles.gif} src="/img/img_missing_.jpg" alt="img" />
                             <div className={styles.imgMissing}></div>
                         </LazyLoad>
