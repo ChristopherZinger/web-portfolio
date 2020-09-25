@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styles from './styles/ProjectDisplay.module.css';
 import LazyLoad from 'react-lazyload';
 
