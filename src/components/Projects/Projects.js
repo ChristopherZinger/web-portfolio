@@ -120,12 +120,12 @@ class Projects extends Component {
     }
 
 
-    async handleNext() {
+    handleNext() {
         const next = this.state.currentNr + 1;
         if (this.state.projects.length > next) {
-            await this.setState({ currentNr: next })
+            this.setState({ currentNr: next })
         } else {
-            await this.setState({ currentNr: 0 })
+            this.setState({ currentNr: 0 })
         }
     }
 
