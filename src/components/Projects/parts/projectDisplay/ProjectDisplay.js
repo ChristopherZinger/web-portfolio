@@ -22,7 +22,6 @@ class ProjectPreview extends React.Component {
             img.src = path
         })
             .then(async p => {
-                console.log('path: ', p)
                 try {
                     await this.setState({ imgIsLoaded: true })
                 } catch (err) {
@@ -51,7 +50,6 @@ class ProjectPreview extends React.Component {
             <img id="gif" className={styles.gif} src={this.props.project.gifSrc} alt="gif" />
             : <div className={styles.spinnerContainer}><div className={styles.spinner}></div></div>;
 
-        console.log('status of imgIsLoaded: ', this.state.imgIsLoaded)
         return (
             <div className={styles.projPreview}>
                 <div className={styles.ipad + " " +
