@@ -143,7 +143,7 @@ class MainContainer extends Component {
                     console.log('Error while loading image: ', err)
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => err)
     }
 
     componentDidMount() {
