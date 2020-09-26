@@ -29,9 +29,6 @@ class ProjectPreview extends React.Component {
                 }
             })
             .catch(err => console.log(err))
-
-
-
     }
 
     componentDidUpdate() {
@@ -48,7 +45,7 @@ class ProjectPreview extends React.Component {
         const imgIsLoaded = this.state.imgIsLoaded;
         const img = imgIsLoaded ?
             <img id="gif" className={styles.gif} src={this.props.project.gifSrc} alt="gif" />
-            : <div className={styles.spinnerContainer}><div className={styles.spinner}></div></div>;
+            : <div className={styles.spinnerContainer}><div></div><div className={styles.spinner}></div></div>;
 
         return (
             <div className={styles.projPreview}>
