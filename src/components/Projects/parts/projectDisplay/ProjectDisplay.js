@@ -1,29 +1,74 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from './styles/ProjectDisplay.module.css';
-import LazyLoad from 'react-lazyload';
 
-function ProjectPreview(props) {
-    return (
-        <div className={styles.projPreview}>
-            <div className={styles.ipad + " " +
-                (props.project.display === "portrait" ? styles.ipadPortrait : styles.ipadLandscape)}>
-                {
-                    props.project.gifSrc ?
-                        <LazyLoad height={385} width="100%" className={styles.lazyLoad}>
-                            <img className={styles.gif} src={props.project.gifSrc} alt="gif" />
-                        </LazyLoad>
+class ProjectPreview extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { imgIsLoaded: false }
+    }
 
-                        :
-                        <LazyLoad height="100%">
-                            <img className={styles.gif} src="/img/img_missing_.jpg" alt="img" />
-                            <div className={styles.imgMissing}></div>
-                        </LazyLoad>
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.project.gifSrc !== nextProps.project.gifSrc) return true;
+        if (!(this.state.imgIsLoaded === true && nextState.imgIsLoaded === false)) return true;
+        return false;
+    }
+
+    loadImg(path) {
+        new Promise((resolve, reject) => {
+            const img = new Image()
+            img.onload = () => resolve(path)
+            img.onerror = () => reject()
+            img.src = path
+        })
+            .then(async p => {
+                console.log('path: ', p)
+                try {
+                    await this.setState({ imgIsLoaded: true })
+                } catch (err) {
+                    console.log('changing state to true: ', err)
                 }
+            })
+            .catch(err => console.log(err))
 
+
+
+    }
+
+    componentDidUpdate() {
+        if (!this.state.imgIsLoaded) {
+            this.loadImg(this.props.project.gifSrc)
+        } else {
+            const setImgFlase = async () => await this.setState({ imgIsLoaded: false });
+            setImgFlase()
+        }
+    }
+
+
+    render() {
+        const imgIsLoaded = this.state.imgIsLoaded;
+        const img = imgIsLoaded ?
+            <img id="gif" className={styles.gif} src={this.props.project.gifSrc} alt="gif" />
+            : <div className={styles.spinnerContainer}><div className={styles.spinner}></div></div>;
+
+        console.log('status of imgIsLoaded: ', this.state.imgIsLoaded)
+        return (
+            <div className={styles.projPreview}>
+                <div className={styles.ipad + " " +
+                    (this.props.project.display === "portrait" ? styles.ipadPortrait : styles.ipadLandscape)}>
+                    {
+                        this.props.project.gifSrc ?
+                            img
+                            :
+                            <Fragment>
+                                <img id="gif" className={styles.gif} src="/img/img_missing_.jpg" alt="img" />
+                                <div className={styles.imgMissing}></div>
+                            </Fragment>
+                    }
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default ProjectPreview;
