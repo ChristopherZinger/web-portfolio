@@ -41,8 +41,6 @@ class ProjectPreview extends React.Component {
                 const setImgFlase = async () => await this.setState({ imgIsLoaded: false });
                 setImgFlase()
             }
-        } else {
-            console.log('Nice, project was already loaded.')
         }
 
     }

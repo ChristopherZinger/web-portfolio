@@ -139,8 +139,6 @@ class MainContainer extends Component {
                     const updatedProj = allprojects.find(p => p.id === proj.id);
                     updatedProj.isLoaded = true;
                     this.setState(allprojects)
-                    console.log(`proj nr ${updatedProj.id} was loaded`)
-
                 } catch (err) {
                     console.log('Error while loading image: ', err)
                 }
