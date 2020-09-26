@@ -7,8 +7,6 @@ import svgs from '../../SVG/svg';
 
 const SVGlib = svgs();
 
-
-
 class Projects extends Component {
     state = {
         "projects": [
@@ -119,7 +117,6 @@ class Projects extends Component {
         this.setState({ cp: this.state.projects[0] })
     }
 
-
     handleNext() {
         const next = this.state.currentNr + 1;
         if (this.state.projects.length > next) {
@@ -142,9 +139,6 @@ class Projects extends Component {
         const index = this.state.projects.findIndex(i => { return i.title === projtitle });
         this.setState({ currentNr: index })
     }
-
-
-
 
     render() {
         const project = this.state.projects[this.state.currentNr]
@@ -181,7 +175,6 @@ class Projects extends Component {
             </div>
         )
     }
-
 }
 
 
