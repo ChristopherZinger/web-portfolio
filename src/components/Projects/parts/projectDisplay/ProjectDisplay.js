@@ -32,24 +32,28 @@ class ProjectPreview extends React.Component {
     }
 
     componentDidUpdate() {
-        if (!this.props.project.isLoaded) { // skip if img was already preloaded
-            if (!this.state.imgIsLoaded) {
-                this.loadImg(this.props.project.gifSrc) // load image
-            } else {
+        if (this.props.project.isLoaded) { // skip if img was already preloaded
+            this.state.imgIsLoaded ?
+                this.setState({ imgIsLoaded: true })
+                : this.setState({ imgIsLoaded: false });
+
+        } else {
+            if (this.state.imgIsLoaded) {
                 // if image was successfully loaded and displayed change state to
                 // imgIsLoaded to false so stettings are reseted when user click on another project
                 const setImgFlase = async () => await this.setState({ imgIsLoaded: false });
                 setImgFlase()
+            } else {
+                this.loadImg(this.props.project.gifSrc) // load image
             }
         }
-
     }
 
     render() {
         const imgIsLoaded = this.state.imgIsLoaded;
 
         // check if img was already preloaded before of if it start loading when component last updated
-        const img = (this.props.project.isLoaded || imgIsLoaded) ?
+        const img = imgIsLoaded ?
             <img id="gif" className={styles.gif} src={this.props.project.gifSrc} alt="gif" />
             : <div className={styles.spinnerContainer}><div></div><div className={styles.spinner}></div></div>;
 
