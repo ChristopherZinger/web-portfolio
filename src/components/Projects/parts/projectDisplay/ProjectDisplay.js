@@ -34,8 +34,8 @@ class ProjectPreview extends React.Component {
     componentDidUpdate() {
         if (this.props.project.isLoaded) { // skip if img was already preloaded
             this.state.imgIsLoaded ?
-                this.setState({ imgIsLoaded: true })
-                : this.setState({ imgIsLoaded: false });
+                this.setState({ imgIsLoaded: false })
+                : this.setState({ imgIsLoaded: true });
 
         } else {
             if (this.state.imgIsLoaded) {
