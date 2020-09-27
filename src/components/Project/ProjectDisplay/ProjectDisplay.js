@@ -28,7 +28,7 @@ class ProjectPreview extends React.Component {
                     console.log('changing state to true: ', err)
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => err)
     }
 
     componentDidUpdate() {
