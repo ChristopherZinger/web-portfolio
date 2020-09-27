@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/ContactFooter.module.css';
-import svgs from '../../SVG/svg';
+import svgs from '../../../SVG/svg';
 const SVGlib = svgs();
 
 const ContactFooter = () => {
