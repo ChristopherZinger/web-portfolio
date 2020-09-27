@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles/Navbar.module.css';
-import hiddenStyles from '../hiddenNavbar/styles/HiddenNavbar.module.css';
+import hiddenStyles from '../HiddenNavbar/styles/HiddenNavbar.module.css';
 
 function Navbar(props) {
     return (
