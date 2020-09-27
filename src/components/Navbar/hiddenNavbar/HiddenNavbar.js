@@ -10,7 +10,7 @@ function HiddenNavbar(props) {
                 <li><Link to="/projects">projects</Link></li>
                 <li><Link to="/contact">contact</Link></li>
                 <li><Link to="/blog">blog</Link></li>
-                <li><Link to="/">about</Link></li>
+                <li><Link to="/">home</Link></li>
             </ul>
         </div>
     )

@@ -10,7 +10,7 @@ function Navbar(props) {
                 <Link to="/projects">projects</Link>
                 <Link to="/contact">contact</Link>
                 <Link to="/blog">blog</Link>
-                <Link to="/">about</Link>
+                <Link to="/">home</Link>
             </div>
 
             <div className={styles.menuBtn} onClick={() => props.toggleStyle(hiddenStyles.isVisible)}>
