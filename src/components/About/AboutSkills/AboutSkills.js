@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/SkillsItem.module.css';
+import styles from './styles/AboutSkills.module.css';
 
 
 function SkillsItem(props) {

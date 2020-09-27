@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/HobbyItem.module.css'
+import styles from './styles/AboutHobby.module.css'
 import svgs from '../../../SVG/svg';
 const SVGlib = svgs();
 

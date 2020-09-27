@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './styles/AboutLayout.module.css';
 import ContactFooter from '../../Contact/ContactFooter/ContactFooter';
 import { Route, Switch } from 'react-router-dom';
-import AboutItem from '../AboutItems/AboutItem';
-import SkillsItem from '../AboutItems/SkillsItem';
-import EducationItem from '../AboutItems/EducationItem';
-import HobbyItem from '../AboutItems/HobbyItem';
-import ExperienceItem from '../AboutItems/ExperienceItem';
+import AboutHello from '../AboutHello/AboutHello';
+import AboutSkills from '../AboutSkills/AboutSkills';
+import AboutEducation from '../AboutEducation/AboutEducation';
+import AboutHobby from '../AboutHobby/AboutHobby';
+import AboutExperience from '../AboutExperience/AboutExperience';
 // import subMenuStyles from './styles/AboutSubmenu.module.css';
-import AboutMenu from '../AboutMenu/AboutMenu';
+import AboutMenu from '../AboutNavbar/AboutNavbar';
 
 
 function About() {
@@ -46,21 +46,21 @@ function About() {
                         < AboutMenu click={updateActiveTabSelector} />
 
                         <Switch >
-                            <Route path="/skills" component={SkillsItem} />
-                            <Route path="/education" component={EducationItem} />
-                            <Route path="/hobbys" component={HobbyItem} />
-                            <Route path="/experience" component={ExperienceItem} />
-                            <Route path="/" exact component={AboutItem} />
+                            <Route path="/skills" component={AboutSkills} />
+                            <Route path="/education" component={AboutEducation} />
+                            <Route path="/hobbys" component={AboutHobby} />
+                            <Route path="/experience" component={AboutExperience} />
+                            <Route path="/" exact component={AboutHello} />
                         </Switch>
                     </div>
 
 
                     <div className={styles.allItems}>
-                        <AboutItem />
-                        <SkillsItem />
-                        <EducationItem />
-                        <ExperienceItem />
-                        <HobbyItem />
+                        <AboutHello />
+                        <AboutSkills />
+                        <AboutEducation />
+                        <AboutExperience />
+                        <AboutHobby />
                     </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import styles from './styles/AboutItem.module.css';
+import styles from './styles/AboutHello.module.css';
 
 
 function AboutItem(props) {

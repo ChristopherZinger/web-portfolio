@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/ExperienceItem.module.css';
+import styles from './styles/AboutExperience.module.css';
 
 
 function ExperienceItem(props) {
