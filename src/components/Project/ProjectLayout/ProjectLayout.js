@@ -7,7 +7,56 @@ import svgs from '../../../SVG/svg';
 
 const SVGlib = svgs();
 
-class Projects extends Component {
+
+const ProjectTitle = ({ title }) => {
+    return (
+        <div className={styles.title}>
+            <h2>{title}</h2>
+        </div>
+    );
+}
+
+const ProjectInfo = ({ subtitle }) => {
+    return (
+        <div className={styles.projInfo} >
+            <span className={styles.dataTitle}>{subtitle}</span >
+            <span className={styles.dataDate}>June 2019</span>
+        </div>
+    );
+}
+
+const ProjectTechnologies = ({ technologies }) => {
+    const techItems = technologies.map((tech, i) =>
+        <div key={i} className={styles.tech}>{tech}</div>
+    )
+
+    return (
+        <div className={styles.techContainer}>
+            {techItems}
+        </div>
+    )
+}
+
+class SwitchProject extends Component {
+    constructor(props) {
+        super(props);
+        this.handleNext = this.props.handleNext.bind(this);
+        this.handlePrevious = this.props.handlePrevious.bind(this);
+    }
+    render() {
+        return (
+            <div className={styles.prevnext}>
+                <div>
+                    <span onClick={this.handlePrevious} >{SVGlib.arrows.left}</span>
+                    <span onClick={this.handleNext} >{SVGlib.arrows.right}</span>
+                </div>
+            </div>
+        )
+    }
+}
+
+
+class ProjectLayout extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -38,42 +87,37 @@ class Projects extends Component {
     }
 
     displayProject(projtitle) {
-        const index = this.props.projects.findIndex(i => { return i.title === projtitle });
+        const index = this.props.projects.findIndex(proj => { return proj.title === projtitle });
         this.setState({ currentNr: index })
     }
 
     render() {
-        const project = this.props.projects[this.state.currentNr]
+        const project = this.props.projects[this.state.currentNr];
+        const allProjects = this.props.projects;
+        const currentProjNr = this.state.currentNr;
 
         return (
             <div className={styles.mainContainer} >
-                <div className={styles.title}>
-                    <h2>{project.title}</h2>
-                </div>
+                <ProjectTitle title={project.title} />
 
-                <div className={styles.projInfo} >
-                    <span className={styles.dataTitle}>{project.subtitle}</span >
-                    <span className={styles.dataDate}>June 2019</span>
-                </div>
+                <ProjectInfo subtitle={project.subtitle} />
 
                 <ProjectDescription project={project} />
+
                 <ProjectPreview project={project} />
+
                 <ProjectList
-                    projects={this.props.projects}
-                    currentNr={this.state.currentNr}
+                    projects={allProjects}
+                    currentNr={currentProjNr}
                     changeProject={this.displayProject}
                 />
 
-                <div className={styles.techContainer}>
-                    {project.technologies.map((tech, i) => <div key={i} className={styles.tech}>{tech}</div>)}
-                </div>
+                <ProjectTechnologies technologies={project.technologies} />
 
-                <div className={styles.prevnext}>
-                    <div>
-                        <span onClick={this.handlePrevious} >{SVGlib.arrows.left}</span>
-                        <span onClick={this.handleNext} >{SVGlib.arrows.right}</span>
-                    </div>
-                </div>
+                <SwitchProject
+                    handleNext={this.handleNext}
+                    handlePrevious={this.handlePrevious}
+                />
             </div>
         )
     }
@@ -81,4 +125,4 @@ class Projects extends Component {
 
 
 
-export default Projects;
+export default ProjectLayout;
