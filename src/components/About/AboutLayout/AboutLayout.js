@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/About.module.css';
+import styles from './styles/AboutLayout.module.css';
 import ContactFooter from '../../Contact/ContactFooter';
 import { Route, Switch } from 'react-router-dom';
 import AboutItem from '../AboutItems/AboutItem';

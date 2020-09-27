@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import Navbar from '../Navbar/navbar/Navbar';
 import HiddenNavbar from '../Navbar/hiddenNavbar/HiddenNavbar';
-import Contact from '../Contact/ContactLayout';
-import About from '../About/About/AboutLayout';
-import Projects from '../Projects/ProjectLayout';
+import ContactLayout from '../Contact/ContactLayout/ContactLayout';
+import AboutLayout from '../About/AboutLayout/AboutLayout';
+import ProjectLayout from '../Project/ProjectLayout/ProjectLayout';
 import { Switch, Route } from 'react-router-dom';
 import styles from './styles/MainContainer.module.css';
 import ColorToggler from '../Navbar/colorToggler/ColorToggler';
-import Blog from '../Blog/BlogLayout';
+import BlogLayout from '../Blog/BlogLayout/BlogLayout';
 
 
 class MainContainer extends Component {
