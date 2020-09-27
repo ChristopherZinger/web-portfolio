@@ -8,8 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import styles from './styles/Layout.module.css';
 import ColorToggler from '../Navbar/ColorToggler/ColorToggler';
 import BlogLayout from '../Blog/BlogLayout/BlogLayout';
-import { render } from '@testing-library/react';
-
+import loadingstyles from './styles/Loading.module.css';
 
 
 class MainLayout extends Component {
@@ -38,10 +37,40 @@ class MainLayout extends Component {
     }
 }
 
-const LoadingPage = props => {
-    return (
-        <div>Loading ... </div>
-    )
+class LoadingPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { i: 0 };
+        this.text = [
+            'Loading ...',
+            'Hello,',
+            'I am Chris!'
+        ];
+        this.time = null;
+    }
+
+    componentDidMount() {
+        this.time = setInterval(() => {
+            this.setState({ i: this.state.i + 1 })
+        }, 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.time)
+    }
+
+    render() {
+
+        const textArr = this.text.map((t, i) => <div key={i} id="loadingText" className={loadingstyles.animation}>{t}</div>)
+        return (
+            <div className={loadingstyles.scr} >
+                <div>
+                    <img src="profile.png" alt="profile" />
+                    {textArr}
+                </div>
+            </div>
+        )
+    }
 }
 
 class MainContainer extends Component {
@@ -49,6 +78,7 @@ class MainContainer extends Component {
         super(props)
         this.state = {
             contentIsLoaded: false,
+            loadingTextNr: 0,
             projects: [
                 {
                     id: 1,
@@ -161,12 +191,19 @@ class MainContainer extends Component {
             ],
             currentNr: 0,
         }
-        this.handleToggleHiddenNav = this.handleToggleHiddenNav.bind(this)
+        this.handleToggleHiddenNav = this.handleToggleHiddenNav.bind(this);
+        this.manageLoading = this.manageLoading.bind(this);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // do not reload every time img finished loading
+        if (this.state.projects !== nextState.projects) return false;
+        return true;
     }
 
 
     loadImg(proj) {
-        const p = new Promise((resolve, reject) => {
+        new Promise((resolve, reject) => {
             const img = new Image()
             img.onload = () => resolve(proj)
             img.onerror = () => reject()
@@ -183,12 +220,19 @@ class MainContainer extends Component {
                 }
             })
             .catch(err => err)
-        return p;
+    }
+
+    manageLoading() {
+        setTimeout(() => {
+            this.setState({ contentIsLoaded: true })
+        }, 6000)
     }
 
     componentDidMount() {
-        const imgLoading = this.state.projects.map(proj => this.loadImg(proj));
-        Promise.all(imgLoading).then(() => this.setState({ contentIsLoaded: true }))
+        // preload images
+        this.state.projects.forEach(proj => this.loadImg(proj));
+        // manage welcome loading
+        this.manageLoading();
     }
 
     handleToggleHiddenNav(style) { document.getElementById('hiddenMenu').classList.toggle(style); }
@@ -196,13 +240,11 @@ class MainContainer extends Component {
     render() {
         const allProjects = this.state.projects;
         const contentIsLoaded = this.state.contentIsLoaded;
+        const isHome = window.location.pathname === '/' ? true : false;
 
-
-        if (!contentIsLoaded) {
-            console.log('[render] loading content')
+        if (isHome && !contentIsLoaded) {
             return < LoadingPage />;
         } else {
-            console.log('[render] ready ')
             return (
                 <MainLayout
                     handleToggleHiddenNav={this.handleToggleHiddenNav}
@@ -210,7 +252,6 @@ class MainContainer extends Component {
                 />
             )
         }
-
     }
 }
 
