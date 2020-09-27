@@ -5,7 +5,7 @@ import ContactLayout from '../Contact/ContactLayout/ContactLayout';
 import AboutLayout from '../About/AboutLayout/AboutLayout';
 import ProjectLayout from '../Project/ProjectLayout/ProjectLayout';
 import { Switch, Route } from 'react-router-dom';
-import styles from './styles/MainContainer.module.css';
+import styles from './styles/Layout.module.css';
 import ColorToggler from '../Navbar/ColorToggler/ColorToggler';
 import BlogLayout from '../Blog/BlogLayout/BlogLayout';
 
