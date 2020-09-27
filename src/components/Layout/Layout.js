@@ -8,12 +8,47 @@ import { Switch, Route } from 'react-router-dom';
 import styles from './styles/Layout.module.css';
 import ColorToggler from '../Navbar/ColorToggler/ColorToggler';
 import BlogLayout from '../Blog/BlogLayout/BlogLayout';
+import { render } from '@testing-library/react';
 
+
+
+class MainLayout extends Component {
+    constructor(props) {
+        super(props)
+        this.handleToggleHiddenNav = this.props.handleToggleHiddenNav.bind(this)
+    }
+    render() {
+        const handleToggleHiddenNav = this.handleToggleHiddenNav;
+        const allProjects = this.props.projects;
+        return (
+            <Fragment>
+                <HiddenNavbar toggleStyle={handleToggleHiddenNav} />
+                <div className={styles.container} >
+                    < Navbar toggleStyle={handleToggleHiddenNav} />
+                    <ColorToggler />
+                    <Switch>
+                        <Route path='/projects' component={() => <ProjectLayout projects={allProjects} />} />
+                        <Route path='/contact' component={ContactLayout} />
+                        <Route path='/blog' component={BlogLayout} />
+                        <Route path='/' component={AboutLayout} />
+                    </Switch>
+                </div>
+            </Fragment>
+        )
+    }
+}
+
+const LoadingPage = props => {
+    return (
+        <div>Loading ... </div>
+    )
+}
 
 class MainContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            contentIsLoaded: false,
             projects: [
                 {
                     id: 1,
@@ -126,11 +161,12 @@ class MainContainer extends Component {
             ],
             currentNr: 0,
         }
+        this.handleToggleHiddenNav = this.handleToggleHiddenNav.bind(this)
     }
 
 
     loadImg(proj) {
-        new Promise((resolve, reject) => {
+        const p = new Promise((resolve, reject) => {
             const img = new Image()
             img.onload = () => resolve(proj)
             img.onerror = () => reject()
@@ -147,36 +183,35 @@ class MainContainer extends Component {
                 }
             })
             .catch(err => err)
+        return p;
     }
 
     componentDidMount() {
-        this.state.projects.forEach(proj => this.loadImg(proj));
+        const imgLoading = this.state.projects.map(proj => this.loadImg(proj));
+        Promise.all(imgLoading).then(() => this.setState({ contentIsLoaded: true }))
     }
 
     handleToggleHiddenNav(style) { document.getElementById('hiddenMenu').classList.toggle(style); }
 
     render() {
-        return (
-            <Fragment>
-                <HiddenNavbar toggleStyle={this.handleToggleHiddenNav} />
-
-                <div className={styles.container} >
-                    < Navbar toggleStyle={this.handleToggleHiddenNav} />
-                    <ColorToggler />
-                    <Switch>
-                        <Route path='/projects' component={() => <ProjectLayout projects={this.state.projects} />} />
-                        <Route path='/contact' component={ContactLayout} />
-                        <Route path='/blog' component={BlogLayout} />
-                        <Route path='/' component={AboutLayout} />
-                    </Switch>
-                </div>
-
-            </Fragment>
+        const allProjects = this.state.projects;
+        const contentIsLoaded = this.state.contentIsLoaded;
 
 
-        )
+        if (!contentIsLoaded) {
+            console.log('[render] loading content')
+            return < LoadingPage />;
+        } else {
+            console.log('[render] ready ')
+            return (
+                <MainLayout
+                    handleToggleHiddenNav={this.handleToggleHiddenNav}
+                    projects={allProjects}
+                />
+            )
+        }
+
     }
-
 }
 
 
