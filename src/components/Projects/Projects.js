@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './styles/Projects.module.css';
-import ProjectList from './parts/projectsList/ProjectList';
-import ProjectPreview from './parts/projectDisplay/ProjectDisplay';
-import ProjectDescription from './parts/description/ProjectDescription';
+import ProjectList from './subcomponents/projectsList/ProjectList';
+import ProjectPreview from './subcomponents/projectDisplay/ProjectDisplay';
+import ProjectDescription from './subcomponents/description/ProjectDescription';
 import svgs from '../../SVG/svg';
 
 const SVGlib = svgs();
@@ -13,6 +13,10 @@ class Projects extends Component {
         this.state = {
             currentNr: 0,
         }
+
+        this.handleNext = this.handleNext.bind(this);
+        this.handlePrevious = this.handlePrevious.bind(this);
+        this.displayProject = this.displayProject.bind(this);
     }
 
     handleNext() {
@@ -57,7 +61,7 @@ class Projects extends Component {
                 <ProjectList
                     projects={this.props.projects}
                     currentNr={this.state.currentNr}
-                    changeProject={this.displayProject.bind(this)}
+                    changeProject={this.displayProject}
                 />
 
                 <div className={styles.techContainer}>
@@ -66,8 +70,8 @@ class Projects extends Component {
 
                 <div className={styles.prevnext}>
                     <div>
-                        <span onClick={this.handlePrevious.bind(this)} >{SVGlib.arrows.left}</span>
-                        <span onClick={this.handleNext.bind(this)} >{SVGlib.arrows.right}</span>
+                        <span onClick={this.handlePrevious} >{SVGlib.arrows.left}</span>
+                        <span onClick={this.handleNext} >{SVGlib.arrows.right}</span>
                     </div>
                 </div>
             </div>
