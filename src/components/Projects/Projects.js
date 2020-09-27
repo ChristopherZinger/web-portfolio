@@ -15,12 +15,6 @@ class Projects extends Component {
         }
     }
 
-
-    componentDidMount() {
-        // cp currentProject
-        this.setState({ cp: this.props.projects[0] })
-    }
-
     handleNext() {
         const next = this.state.currentNr + 1;
         if (this.props.projects.length > next) {
