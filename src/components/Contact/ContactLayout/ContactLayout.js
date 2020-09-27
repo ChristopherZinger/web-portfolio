@@ -11,13 +11,13 @@ const Contact = () => {
                 <div>
                     <hr />
                     <p>Phone</p>
-                    <h4>0 621 36 2826</h4>
+                    <h4 className={styles.selectable} >0 621 36 2826</h4>
                 </div>
 
                 <div>
                     <hr />
                     <p>email</p>
-                    <h4>krzysztof.zinger@gmail.com</h4>
+                    <h4 className={styles.selectable}>krzysztof.zinger@gmail.com</h4>
                 </div>
 
                 <div>
