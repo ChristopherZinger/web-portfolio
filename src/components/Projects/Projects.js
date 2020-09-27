@@ -8,9 +8,13 @@ import svgs from '../../SVG/svg';
 const SVGlib = svgs();
 
 class Projects extends Component {
-    state = {
-        currentNr: 0,
+    constructor(props) {
+        super(props)
+        this.state = {
+            currentNr: 0,
+        }
     }
+
 
     componentDidMount() {
         // cp currentProject
