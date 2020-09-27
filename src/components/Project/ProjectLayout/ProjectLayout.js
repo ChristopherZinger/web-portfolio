@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './styles/ProjectLayout.module.css';
-import ProjectList from '../subcomponents/projectsList/ProjectList';
-import ProjectPreview from '../subcomponents/projectDisplay/ProjectDisplay';
-import ProjectDescription from '../subcomponents/description/ProjectDescription';
+import ProjectList from '../ProjectsList/ProjectList';
+import ProjectPreview from '../ProjectDisplay/ProjectDisplay';
+import ProjectDescription from '../ProjectDescription/ProjectDescription';
 import svgs from '../../../SVG/svg';
 
 const SVGlib = svgs();
