@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import Navbar from '../Navbar/navbar/Navbar';
 import HiddenNavbar from '../Navbar/hiddenNavbar/HiddenNavbar';
-import Contact from '../Contact/Contact';
-import About from '../About/About/About';
-import Projects from '../Projects/Projects';
+import Contact from '../Contact/ContactLayout';
+import About from '../About/About/AboutLayout';
+import Projects from '../Projects/ProjectLayout';
 import { Switch, Route } from 'react-router-dom';
 import styles from './styles/MainContainer.module.css';
 import ColorToggler from '../Navbar/colorToggler/ColorToggler';
-import Blog from '../Blog/Blog';
+import Blog from '../Blog/BlogLayout';
 
 
 class MainContainer extends Component {
@@ -164,10 +164,10 @@ class MainContainer extends Component {
                     < Navbar toggleStyle={this.handleToggleHiddenNav} />
                     <ColorToggler />
                     <Switch>
-                        <Route path='/projects' component={() => <Projects projects={this.state.projects} />} />
-                        <Route path='/contact' component={Contact} />
-                        <Route path='/blog' component={Blog} />
-                        <Route path='/' component={About} />
+                        <Route path='/projects' component={() => <ProjectLayout projects={this.state.projects} />} />
+                        <Route path='/contact' component={ContactLayout} />
+                        <Route path='/blog' component={BlogLayout} />
+                        <Route path='/' component={AboutLayout} />
                     </Switch>
                 </div>
 
