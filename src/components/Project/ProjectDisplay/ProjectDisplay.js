@@ -101,8 +101,8 @@ const Img = ({ imgIsLoaded, imgSrc, ...props }) => {
                 src={imgSrc} alt="gif" />
         )
     } else {
+        // return loading spinner
         return (
-            // return loading spinner
             <div className={styles.spinnerContainer}>
                 <div></div>
                 <div className={styles.spinner}></div>
