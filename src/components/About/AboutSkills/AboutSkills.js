@@ -9,7 +9,7 @@ function SkillsItem(props) {
     },
     {
       title: "Backend",
-      items: ["GraphQl", "Node.js", "Express"],
+      items: ["GraphQL", "Node.js", "Express"],
     },
     {
       title: "Databases",
