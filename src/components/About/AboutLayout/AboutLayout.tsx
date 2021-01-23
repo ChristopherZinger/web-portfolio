@@ -7,15 +7,14 @@ import AboutSkills from "../AboutSkills/AboutSkills";
 import AboutEducation from "../AboutEducation/AboutEducation";
 import AboutHobby from "../AboutHobby/AboutHobby";
 import AboutExperience from "../AboutExperience/AboutExperience";
-// import subMenuStyles from './styles/AboutSubmenu.module.css';
 import AboutMenu from "../AboutNavbar/AboutNavbar";
 
-function About() {
-  function updateActiveTabSelector(e) {
+export const AboutLayout = () => {
+  function updateActiveTabSelector(e: React.MouseEvent) {
     let root = document.documentElement;
     Array.from(e.currentTarget.children).forEach((item, i) => {
-      if (item.innerHTML === e.target.innerHTML) {
-        // hr.style.marginLeft = `${i * 20}%`;
+      const x = e.target as HTMLElement
+      if (item.innerHTML === x.innerHTML) {
         root.style.setProperty(
           "--navSelectorLeftOffset",
           `calc((((100% - (var(--gutterSize) * 4))/5 ) + (var(--gutterSize))) * ${i} )`
@@ -34,7 +33,6 @@ function About() {
           <div className={styles.full}>
             <h1 className={styles.right}>PORTFOLIO</h1>
           </div>
-          {/* <div className={styles.full}><h1 className={styles.left} >CHRIS</h1></div> */}
         </div>
         <div className={styles.sHeadline}>
           <h1>Hello.</h1>
@@ -68,5 +66,3 @@ function About() {
     </div>
   );
 }
-
-export default About;
