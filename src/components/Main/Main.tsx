@@ -32,7 +32,12 @@ export const Main = () => {
     }
 
     // start loading gifs for the project.
-    useEffect(() => { Promise.all(projectData.map(p => () => loadImg(p))) }, [])
+    useEffect(() => {
+        const projectsWithGif = projectData.filter(p => p.gifSrc)
+        Promise.all(projectsWithGif.map(loadImg))
+            .then(() => null)
+            .catch(err => console.error("error: ", err))
+    }, [])
 
     return (
         <>

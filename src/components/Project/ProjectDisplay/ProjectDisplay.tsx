@@ -21,7 +21,7 @@ export const ProjectDisplay = (props: Props) => {
 }
 
 const Img = (props: { imgSrc: string }) => {
-    if (props.imgSrc) {
+    if (!props.imgSrc) {
         return (
             <>
                 <img id="gif" className={styles.gif} src="/img/img_missing_.jpg" alt="img" />
