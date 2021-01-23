@@ -7,7 +7,7 @@ import AboutSkills from "../AboutSkills/AboutSkills";
 import AboutEducation from "../AboutEducation/AboutEducation";
 import AboutHobby from "../AboutHobby/AboutHobby";
 import AboutExperience from "../AboutExperience/AboutExperience";
-import AboutMenu from "../AboutNavbar/AboutNavbar";
+import { AboutNavbar } from "../AboutNavbar/AboutNavbar";
 
 export const AboutLayout = () => {
   function updateActiveTabSelector(e: React.MouseEvent) {
@@ -42,7 +42,7 @@ export const AboutLayout = () => {
       <div className={styles.infoContainer}>
         <div className={styles.aboutMenu}>
           <div className={styles.singleItems}>
-            <AboutMenu click={updateActiveTabSelector} />
+            <AboutNavbar click={updateActiveTabSelector} />
 
             <Switch>
               <Route path="/skills" component={AboutSkills} />

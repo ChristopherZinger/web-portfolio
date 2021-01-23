@@ -2,7 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles/AboutNavbar.module.css";
 
-function AboutMenu(props) {
+type Props = {
+  click: (e: React.MouseEvent) => void
+}
+
+export const AboutNavbar = (props: Props) => {
   return (
     <div className={styles.navContainer}>
       <nav onClick={props.click} className={styles.infoMenu}>
@@ -31,4 +35,3 @@ function AboutMenu(props) {
   );
 }
 
-export default AboutMenu;
