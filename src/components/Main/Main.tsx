@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar } from '../Navbar/Navbar/Navbar';
 import { HiddenNavbar } from '../Navbar/HiddenNavbar/HiddenNavbar';
-import ContactLayout from '../Contact/ContactLayout/ContactLayout';
+import { ContactLayout } from '../Contact/ContactLayout/ContactLayout';
 import AboutLayout from '../About/AboutLayout/AboutLayout';
 import ProjectLayout from '../Project/ProjectLayout/ProjectLayout';
 import { Switch, Route } from 'react-router-dom';

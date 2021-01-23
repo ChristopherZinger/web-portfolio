@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/ContactLayout.module.css';
 
-const Contact = () => {
+export const ContactLayout = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.title}>
@@ -36,6 +36,3 @@ const Contact = () => {
         </div>
     )
 }
-
-
-export default Contact;

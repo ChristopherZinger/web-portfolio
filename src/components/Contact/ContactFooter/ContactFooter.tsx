@@ -3,7 +3,7 @@ import styles from './styles/ContactFooter.module.css';
 import svgs from '../../../SVG/svg';
 const SVGlib = svgs();
 
-const ContactFooter = () => {
+export const ContactFooter = () => {
     return (
         <div className={styles.contactFooter}>
             <div>
@@ -19,6 +19,3 @@ const ContactFooter = () => {
         </div>
     )
 }
-
-
-export default ContactFooter;
