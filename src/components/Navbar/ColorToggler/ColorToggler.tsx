@@ -4,7 +4,7 @@ import svgs from '../../../SVG/svg';
 
 const SVGlib = svgs();
 
-function ColorToggler(props) {
+export const ColorToggler = () => {
     const colors = {
         defaultSet: {
             name: 'balckandwhite',
@@ -46,6 +46,7 @@ function ColorToggler(props) {
             }
         ]
     }
+
     const [colSet, setColSet] = useState(0);
     const [isBlack, setIsBlack] = useState(true)
     const [iLove, setILove] = useState('colors');
@@ -67,7 +68,6 @@ function ColorToggler(props) {
 
         setIsBlack(!isBlack);
 
-
         document.documentElement.style.setProperty("--bg-color", set.bg);
         document.documentElement.style.setProperty("--font-color", set.letters);
         document.documentElement.style.setProperty("--heart-color", set.heart);
@@ -77,7 +77,6 @@ function ColorToggler(props) {
         document.documentElement.style.setProperty("--missing-filter-color", set.missingFilter);
     }
 
-
     return (
         <div onClick={toggleColors} className={styles.colorToggler} >
             <div>
@@ -86,5 +85,3 @@ function ColorToggler(props) {
         </div >
     )
 }
-
-export default ColorToggler;

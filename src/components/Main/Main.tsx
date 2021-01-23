@@ -6,7 +6,7 @@ import { AboutLayout } from '../About/AboutLayout/AboutLayout';
 import ProjectLayout from '../Project/ProjectLayout/ProjectLayout';
 import { Switch, Route } from 'react-router-dom';
 import styles from './styles/Layout.module.css';
-import ColorToggler from '../Navbar/ColorToggler/ColorToggler';
+import { ColorToggler } from '../Navbar/ColorToggler/ColorToggler';
 import { BlogLayout } from '../Blog/BlogLayout/BlogLayout';
 import { projectData, ProjectType } from "../../data/data-projects";
 import hiddenStyles from "../Navbar/HiddenNavbar/styles/HiddenNavbar.module.css";
