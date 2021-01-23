@@ -4,7 +4,7 @@ import { ContactFooter } from "../../Contact/ContactFooter/ContactFooter";
 import { Route, Switch } from "react-router-dom";
 import { AboutHello } from "../AboutHello/AboutHello";
 import AboutSkills from "../AboutSkills/AboutSkills";
-import AboutEducation from "../AboutEducation/AboutEducation";
+import { AboutEducation } from "../AboutEducation/AboutEducation";
 import { AboutHobby } from "../AboutHobby/AboutHobby";
 import AboutExperience from "../AboutExperience/AboutExperience";
 import { AboutNavbar } from "../AboutNavbar/AboutNavbar";
