@@ -13,7 +13,7 @@ export type ProjectType = {
     isLoaded: boolean
 }
 
-export const projects : ProjectType[] = [
+export const projectData : ProjectType[] = [
     {
         id: 1,
         title: "Typing for fun",

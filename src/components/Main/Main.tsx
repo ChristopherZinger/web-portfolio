@@ -8,7 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import styles from './styles/Layout.module.css';
 import ColorToggler from '../Navbar/ColorToggler/ColorToggler';
 import { BlogLayout } from '../Blog/BlogLayout/BlogLayout';
-import { projects, ProjectType } from "../../data/data";
+import { projectData, ProjectType } from "../../data/data-projects";
 import hiddenStyles from "../Navbar/HiddenNavbar/styles/HiddenNavbar.module.css";
 
 export const Main = () => {
@@ -32,7 +32,7 @@ export const Main = () => {
     }
 
     // start loading gifs for the project.
-    useEffect(() => { Promise.all(projects.map(p => () => loadImg(p))) }, [])
+    useEffect(() => { Promise.all(projectData.map(p => () => loadImg(p))) }, [])
 
     return (
         <>
@@ -41,7 +41,7 @@ export const Main = () => {
                 < Navbar navbarIsHidden={navbarIsHidden} toggleNavbar={toggleNavbar} />
                 <ColorToggler />
                 <Switch>
-                    <Route path='/projects' component={() => <ProjectLayout projects={projects} />} />
+                    <Route path='/projects' component={() => <ProjectLayout projects={projectData} />} />
                     <Route path='/contact' component={ContactLayout} />
                     <Route path='/blog' component={BlogLayout} />
                     <Route path='/' component={AboutLayout} />
