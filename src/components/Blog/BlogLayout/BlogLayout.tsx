@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/BlogLayout.module.css';
 
-function Blog(props) {
+export const BlogLayout = () => {
     return (
         <div className={styles.mainContainer}>
             <h2 className={styles.title}>Blog</h2>
@@ -13,5 +13,3 @@ function Blog(props) {
         </div>
     )
 }
-
-export default Blog;
