@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './styles/ProjectDescription.module.css';
+import { ProjectType } from "../../../data/data-projects"
 import svgs from '../../../SVG/svg';
 const SVGlib = svgs();
 
+type Props = {
+    project: ProjectType
+}
 
-function ProjectDescription(props) {
+export const ProjectDescription = (props: Props) => {
     return (
         <div className={styles.description}>
             <p>
@@ -12,7 +16,6 @@ function ProjectDescription(props) {
             </p>
 
             <div className={styles.visitLink}>
-
                 {
                     props.project.url ?
                         <div >
@@ -24,18 +27,12 @@ function ProjectDescription(props) {
                         :
                         null
                 }
-
                 <div>
                     <a href={props.project.urlGit} rel="noreferrer">
                         {SVGlib.git}
                     </a>
                 </div>
-
-
             </div>
-
         </div>
     )
 }
-
-export default ProjectDescription;
