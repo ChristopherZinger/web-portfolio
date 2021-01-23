@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import styles from './styles/Navbar.module.css';
 import hiddenStyles from '../HiddenNavbar/styles/HiddenNavbar.module.css';
 
-function Navbar(props) {
+type Props = {
+    navbarIsHidden: boolean;
+    toggleNavbar: () => void
+}
+
+export const Navbar = (props: Props) => {
     return (
         <nav className={styles.nav}>
             <div className={styles.navLeft}>
@@ -13,12 +18,10 @@ function Navbar(props) {
                 <Link to="/">home</Link>
             </div>
 
-            <div className={styles.menuBtn} onClick={() => props.toggleStyle(hiddenStyles.isVisible)}>
+            <div className={styles.menuBtn} onClick={props.toggleNavbar}>
                 <div></div>
                 <div></div>
             </div>
         </nav>
     )
 }
-
-export default Navbar;
