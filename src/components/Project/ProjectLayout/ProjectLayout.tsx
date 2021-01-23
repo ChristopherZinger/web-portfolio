@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles/ProjectLayout.module.css";
-import ProjectList from "../ProjectsList/ProjectList";
+import { ProjectList } from "../ProjectsList/ProjectList";
 import { ProjectDisplay } from "../ProjectDisplay/ProjectDisplay";
 import { ProjectDescription } from "../ProjectDescription/ProjectDescription";
 import svgs from "../../../SVG/svg";
