@@ -1,30 +1,8 @@
 import React from "react";
 import styles from "./styles/AboutSkills.module.css";
+import { skillsData } from "../../../data/data-skills";
 
-function SkillsItem(props) {
-  const skillsData = [
-    {
-      title: "Frontend",
-      items: ["JS, HTML, CSS", "React", "JQuery"],
-    },
-    {
-      title: "Backend",
-      items: ["GraphQL", "Node.js", "Express"],
-    },
-    {
-      title: "Databases",
-      items: ["Postgres, SQL"],
-    },
-    {
-      title: "Tools",
-      items: ["Git & Github", "VS Code"],
-    },
-    {
-      title: "Graphics",
-      items: ["Photoshop", "Illustrator", "InDesign", "Figma"],
-    },
-  ];
-
+export const AboutSkills = () => {
   return (
     <div className={styles.skillsContainer}>
       <div className={styles.title}>
@@ -47,5 +25,3 @@ function SkillsItem(props) {
     </div>
   );
 }
-
-export default SkillsItem;
