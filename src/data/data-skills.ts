@@ -6,7 +6,7 @@ export type SkillType = {
 export const skillsData: SkillType[] = [
     {
       title: "Frontend",
-      items: ["JS, HTML, CSS", "React", "JQuery"],
+      items: ["TypeScript", "JS, HTML, CSS", "React", "JQuery"],
     },
     {
       title: "Backend",
