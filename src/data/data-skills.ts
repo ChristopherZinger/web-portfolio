@@ -14,7 +14,7 @@ export const skillsData: SkillType[] = [
     },
     {
       title: "Databases",
-      items: ["Postgres, SQL"],
+      items: ["Postgres", "SQL"],
     },
     {
       title: "Tools",
