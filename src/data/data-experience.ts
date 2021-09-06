@@ -7,8 +7,14 @@ export type ExperienceType = {
 
 export const experienceData = [
     {
+        from: `Apr '21`,
+        to: `now`,
+        company: `van-ons`,
+        position: `Junior Frontend Developer`
+    },
+    {
         from: `Oct '20`,
-        to: `Jan '21`,
+        to: `Mar '21`,
         company: `Elanza`,
         position: `Full Stack Internship`,
     },
